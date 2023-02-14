@@ -16,18 +16,18 @@ export const baseTokens = {
   COLOR: {
     TEXT: {
       PRIMARY: {
-        TLIGHT: '#1a1a1a',
-        TDARK: '#ffffff',
-        TFANTASY: '#ffff00',
+        THEME_LIGHT: '#1a1a1a',
+        THEME_DARK: '#ffffff',
+        THEME_FANTASY: '#ffff00',
         INVERTED: {
-          TLIGHT: '#ffffff',
-          TDARK: '#1a1a1a',
-          TFANTASY: '#ff0000',
+          THEME_LIGHT: '#ffffff',
+          THEME_DARK: '#1a1a1a',
+          THEME_FANTASY: '#ff0000',
         },
       },
       DIM: {
         DEFAULT: '#808080',
-        TFANTASY: '#00ff00',
+        THEME_FANTASY: '#00ff00',
       },
     },
   },
@@ -42,17 +42,17 @@ const tokensObject = {
     '--base-color--gray--white': '#ffffff',
     '--base-color--gray--black': '#000000',
   },
-  tlight: {
+  theme_light: {
     '--color--text--primary': '#1a1a1a',
     '--color--text--primary--inverted': '#ffffff',
     '--color--text--dim': '#808080',
   },
-  tdark: {
+  theme_dark: {
     '--color--text--primary': '#ffffff',
     '--color--text--primary--inverted': '#1a1a1a',
     '--color--text--dim': '#808080',
   },
-  tfantasy: {
+  theme_fantasy: {
     '--color--text--primary': '#ffff00',
     '--color--text--primary--inverted': '#ff0000',
     '--color--text--dim': '#00ff00',
@@ -60,9 +60,9 @@ const tokensObject = {
 }
 
 const THEMES = {
-  TLIGHT: 'tlight',
-  TDARK: 'tdark',
-  TFANTASY: 'tfantasy',
+  THEME_LIGHT: 'theme_light',
+  THEME_DARK: 'theme_dark',
+  THEME_FANTASY: 'theme_fantasy',
 }
 
 test('get tokens object', () => {
@@ -75,13 +75,13 @@ test('get stringified tokens', () => {
   const expectedRootSelector = ':root'
   const expectedRootValue =
     '--base-color--primary--light: #c0b7f3; --base-color--primary--main: #998ceb; --base-color--primary--dark: #5f4be0; --base-color--gray--50: #808080; --base-color--gray--white: #ffffff; --base-color--gray--black: #000000'
-  const expectedThemeLightSelector = 'body[data-theme="tlight"]'
+  const expectedThemeLightSelector = 'body[data-theme="theme_light"]'
   const expectedThemeLightValue =
     '--color--text--primary: #1a1a1a; --color--text--primary--inverted: #ffffff; --color--text--dim: #808080'
-  const expectedThemeDarkSelector = 'body[data-theme="tdark"]'
+  const expectedThemeDarkSelector = 'body[data-theme="theme_dark"]'
   const expectedThemeDarkValue =
     '--color--text--primary: #ffffff; --color--text--primary--inverted: #1a1a1a; --color--text--dim: #808080'
-  const expectedThemeFantasySelector = 'body[data-theme="tfantasy"]'
+  const expectedThemeFantasySelector = 'body[data-theme="theme_fantasy"]'
   const expectedThemeFantasyValue =
     '--color--text--primary: #ffff00; --color--text--primary--inverted: #ff0000; --color--text--dim: #00ff00'
 

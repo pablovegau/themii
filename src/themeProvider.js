@@ -1,30 +1,31 @@
 import { createContext, useState, useEffect } from 'react'
 
 export const ThemeContext = createContext()
-const defaultTheme = 'tlight'
 
 export function ThemeProvider(props) {
+  const { defaultTheme, darkTheme, localStorageKey = 'theme' } = props
   const [theme, setTheme] = useState()
 
+  const userPreferenceDarkTheme = window.matchMedia('(prefers-color-scheme:dark)').matches
+
   useEffect(() => {
-    const localStorageTheme = window.localStorage.getItem('theme') || undefined
-    const defaultUserThemeIsDark = window.matchMedia('(prefers-color-scheme:dark)').matches
+    const localStorageTheme = window.localStorage.getItem(localStorageKey) || undefined
 
     if (localStorageTheme) {
       setTheme(localStorageTheme)
-    } else if (defaultUserThemeIsDark) {
-      setTheme('tdark')
+    } else if (userPreferenceDarkTheme) {
+      setTheme(darkTheme)
     } else {
       setTheme(defaultTheme)
     }
-  }, [])
+  }, [userPreferenceDarkTheme, defaultTheme, darkTheme, localStorageKey])
 
   useEffect(() => {
     if (theme) {
       document.body.dataset.theme = theme
-      window.localStorage.setItem('theme', theme)
+      window.localStorage.setItem(localStorageKey, theme)
     }
-  }, [theme])
+  }, [localStorageKey, theme])
 
   const value = { theme, setTheme }
   return <ThemeContext.Provider value={value} {...props} />
