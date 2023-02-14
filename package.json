@@ -1,0 +1,38 @@
+{
+  "name": "themii",
+  "version": "0.0.8",
+  "description": "Your React theme using styled-components easy",
+  "source": "src/index.js",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "type": "module",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "test": "jest",
+    "watch": "parcel watch",
+    "build": "parcel build"
+  },
+  "author": "Pablo Vega Uceta",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.4.1",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-standard": "^17.0.0",
+    "jest": "^29.4.1",
+    "parcel": "^2.8.3",
+    "prettier": "^2.8.3"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  }
+}
